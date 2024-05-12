@@ -48,15 +48,16 @@ def detail(keyword):
 
      if not definitions:
         return redirect(url_for(
-        'main',
-        msg=f'Could not find {keyword}'
+        'error',
+        word=keyword
     ))
 
      if type(definitions[0]) is str:
         return redirect(url_for(
-        'main',
-        msg=f'Could not find {keyword}, did you mean {", ".join(definitions)}?'
+        'error',
+        word=keyword, suggestion =','.join(definitions)
     ))
+     
      status=request.args.get('status_give', 'new')
      return render_template(
      'detail.html',

@@ -59,23 +59,17 @@
 <body>
     <div class="wrap">
     <div class="banner" onclick="window.location.href = '/';"></div>
-    <div class="search-box d-flex justify-content-center"></div>
-    <div class="containerr">
+    <div class="container">
         <h1> Your Word, "{{ word }}", could not be found </h1>
         {% if suggestions %}
         <h3>Here are some suggested words</h3>
-        {% for suggestion in suggestion%}
+        {% for suggestion in suggestions %}
         <a href="/detail/{{suggestion}}" class="btn btn-primaty">{{suggestion}}</a>
-        {% endfor %}
-        {% endif %}
-        <p>Kembali ke <a href="/">Halaman Utama</a>.</p>
+        {% endfor %}{% endif %}
     </div>
 </div>
     <div class="container">
         <footer class="py-3 my-4">
-          <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-            <li class="nav-item"><a href="/detail/example" class="nav-link px-2 text-body-secondary">Detail Page</a></li>
-          </ul>
           <p class="text-center text-body-secondary">&copy; 2024 Salman AlFarisi</p>
         </footer>
       </div>
